@@ -1,24 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import "./App.css";
+
+import { findLongestPath } from "./helpers/helper";
+import { PathData } from "./types/types";
 
 function App() {
+  const jumpingBranches: number[] = [12, 2, 17, 1, 5];
+
+  const path: PathData = findLongestPath(jumpingBranches);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Squirrel Jump Programming problem</h1>
+      <h2>HOW MANY JUMPS : {path.jumpOccurance}</h2>
+      {path.pathStepsTaken.map((step, idx) => (
+        <h1 key={idx}>INDEX OF STEP: {step}</h1>
+      ))}
     </div>
   );
 }
